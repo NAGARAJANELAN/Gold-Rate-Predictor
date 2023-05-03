@@ -1,7 +1,8 @@
 fastapi
 uvicorn
-pickle
+pickles
 json
 pydantic
 numpy
+requests
 pandas
