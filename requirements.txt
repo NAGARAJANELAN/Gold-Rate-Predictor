@@ -1,7 +1,7 @@
 fastapi
 uvicorn
 pickles
-json
+jsons
 pydantic
 numpy
 requests
