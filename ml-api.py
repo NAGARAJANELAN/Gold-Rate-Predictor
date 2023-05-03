@@ -1,10 +1,21 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import pickle
 import json
 
 
 app = FastAPI()
+
+origins=["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class model_input(BaseModel):
     
@@ -15,6 +26,10 @@ class model_input(BaseModel):
 
 # loading the saved model
 gold_predictor_model = pickle.load(open('gold_rate_predictor.sav', 'rb'))
+
+@app.get("/")
+def root():
+    return 'API RUNNING...'
 
 @app.post('/gold_rate_prediction')
 def gold_prediction(input_parameters : model_input):
