@@ -1,8 +1,9 @@
+numpy
+pandas
 fastapi
 uvicorn
-pickles
-jsons
 pydantic
-numpy
+jsons
+pickles
+scikit-learn
 requests
-pandas
